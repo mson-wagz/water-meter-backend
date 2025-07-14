@@ -41,6 +41,7 @@ app.get("/api/readings", async (req, res) => {
     res.json(result.rows)
   // eslint-disable-next-line no-unused-vars
   } catch (err) {
+    console.error("❌ READINGS ERROR:", err);
     res.status(500).json({ error: "Failed to fetch readings" })
   }
 })
