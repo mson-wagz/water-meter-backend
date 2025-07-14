@@ -1,13 +1,13 @@
 // filepath: src/libs/db.js
 import { Pool } from "pg"
+import dotenv from "dotenv"
+dotenv.config()
 
-// Update these values to match your local PostgreSQL setup
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "water_meter_app",
-  password: "Muthoni_Wagura123",
-  port: 5432, // default PostgreSQL port
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false, // required by Supabase
+  },
 })
 
 export default pool
